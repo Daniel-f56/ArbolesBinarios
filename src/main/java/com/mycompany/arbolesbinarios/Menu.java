@@ -20,21 +20,40 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         insertarArbol = new javax.swing.JButton();
-        imprimir = new javax.swing.JButton();
+        preorden = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        inorden = new javax.swing.JButton();
+        postorden = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        insertarArbol.setText("Agregar al arbol");
+        insertarArbol.setText("Agregar al árbol");
         insertarArbol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 insertarArbolActionPerformed(evt);
             }
         });
 
-        imprimir.setText("Imprimir");
-        imprimir.addActionListener(new java.awt.event.ActionListener() {
+        preorden.setText("Recorrido Pre-Orden");
+        preorden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                imprimirActionPerformed(evt);
+                preordenActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("ÁRBOLES BINARIOS");
+
+        inorden.setText("Recorrido In-Orden");
+        inorden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inordenActionPerformed(evt);
+            }
+        });
+
+        postorden.setText("Recorrido Post-Orden");
+        postorden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                postordenActionPerformed(evt);
             }
         });
 
@@ -43,20 +62,40 @@ public class Menu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(insertarArbol)
-                .addGap(75, 75, 75)
-                .addComponent(imprimir)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addGap(135, 135, 135)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(postorden))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(insertarArbol)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(inorden)
+                            .addComponent(preorden))))
+                .addGap(31, 31, 31))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(112, 112, 112)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(insertarArbol)
-                    .addComponent(imprimir))
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(insertarArbol))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(preorden)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(inorden)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(postorden)
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         pack();
@@ -68,11 +107,24 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_insertarArbolActionPerformed
 
-    private void imprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imprimirActionPerformed
+    private void preordenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_preordenActionPerformed
         // TODO add your handling code here:
         String resultado = arbol.dispararPreorden();
         JOptionPane.showMessageDialog(null, resultado);
-    }//GEN-LAST:event_imprimirActionPerformed
+    }//GEN-LAST:event_preordenActionPerformed
+
+    private void inordenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inordenActionPerformed
+        // TODO add your handling code here:
+        
+        String resultado = arbol.dispararInorden();
+        JOptionPane.showMessageDialog(null, resultado);
+    }//GEN-LAST:event_inordenActionPerformed
+
+    private void postordenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_postordenActionPerformed
+        // TODO add your handling code here:
+        String resultado = arbol.dispararPostorden();
+        JOptionPane.showMessageDialog(null, resultado);
+    }//GEN-LAST:event_postordenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,7 +162,10 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton imprimir;
+    private javax.swing.JButton inorden;
     private javax.swing.JButton insertarArbol;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton postorden;
+    private javax.swing.JButton preorden;
     // End of variables declaration//GEN-END:variables
 }
