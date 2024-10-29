@@ -2,6 +2,7 @@ package com.mycompany.arbolesbinarios;
 
 import javax.swing.JOptionPane;
 
+//Clase para contruir los nodos
 public class Nodo {
     
     int valor;

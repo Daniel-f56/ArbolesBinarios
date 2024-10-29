@@ -6,11 +6,12 @@ public class Arbol {
     
     Nodo inicial;
 
-    // Constructor correcto
+    // Constructor
     public Arbol() {
         this.inicial = null;
     }
 
+    //Metodo para insertar el arbol
     public void insertar() {
         String valor = JOptionPane.showInputDialog(null, "Ingrese el valor que va a ingresar");
         try {
@@ -25,6 +26,7 @@ public class Arbol {
         }
     }
 
+    
     // Preorden: raíz -> izquierda -> derecha
     public String dispararPreorden() {
         return preorden(this.inicial).trim(); // Trim para evitar espacios o comas extra al final
@@ -41,6 +43,7 @@ public class Arbol {
         }
     }
 
+    
     // Inorden: izquierda -> raíz -> derecha
     public String dispararInorden() {
         return inorden(this.inicial).trim();
@@ -56,7 +59,9 @@ public class Arbol {
             return resultado;
         }
     }
-
+    
+    
+    // Postorden: izquierda -> derecha -> raiz
     public String dispararPostorden() {
     return postorden(this.inicial);
 }
